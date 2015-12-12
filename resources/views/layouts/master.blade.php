@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>
-      @yield('title', 'Lorem Ipsum Generator')
+      @yield('title', 'Real Estate Listings')
     </title>
     <meta charset='utf-8'>
 
@@ -23,7 +23,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <!-- Custom css -->
-    <link href="css/p3.css" type='text/css' rel='stylesheet'>
+    <link href="css/p4.css" type='text/css' rel='stylesheet'>
 </head>
 <body>
   <div class="container-fluid">
