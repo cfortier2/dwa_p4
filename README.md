@@ -16,6 +16,9 @@ TODO:
 # Details:
 TODO:
 
+# MySql Setup:
+docker run --name P4_MYSQL -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:latest -v /var/lib/mysql:/var/lib/mysql
+
 # Build and Deployment:
 I used the same Docker/Jenkins workflow that I used for Project 3. Details are:
 Of unique interest: I decided to build and deploy this project using Docker. As such, the Dockerfile is committed with this repo. I have also modified the configuration of my server to also run Jenkins to manage the build and deployment of the project. I am using nginx as a reverse proxy listening on port 80 to route traffic to the container.
