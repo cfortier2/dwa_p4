@@ -29,7 +29,7 @@ RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/lo
 COPY . /app
 
 # set php.ini
-COPY php.ini /etc/apache2/php.ini
+# COPY ./php.ini /etc/apache2/php.ini
 
 # set apache conf
 COPY ./etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf
