@@ -1,6 +1,8 @@
 FROM php:5.6.14-apache
 MAINTAINER Chris Fortier <cfortier2@gmail.com>
 
+ENV TERM=xterm-256color
+
 ### The `Packages and PHP Extensions` lines originated from: https://github.com/RobLoach/docker-composer/blob/master/base/Dockerfile
 # Packages
 RUN apt-get update && \
@@ -28,8 +30,8 @@ RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/lo
 # move application to correct location
 COPY . /app
 
-# set php.ini
-# COPY ./php.ini /etc/apache2/php.ini
+# enable opcache
+RUN php5enmod opcache
 
 # set apache conf
 COPY ./etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf
