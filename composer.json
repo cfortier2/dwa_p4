@@ -7,7 +7,8 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-        "barryvdh/laravel-debugbar": "~2.0"
+        "barryvdh/laravel-debugbar": "~2.0",
+        "barryvdh/laravel-cors": "0.7.x"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
