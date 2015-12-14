@@ -24,6 +24,7 @@ class CreateListingsTable extends Migration
           $table->integer('price');
           $table->integer('available_month');
           $table->string('summary');
+          $table->string('type');
         });
     }
 

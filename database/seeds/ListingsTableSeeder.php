@@ -12,7 +12,7 @@ class ListingsTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('books')->insert([
+        DB::table('listings')->insert([
           'created_at' => Carbon\Carbon::now()->toDateTimeString(),
           'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
           'title' => 'Grand Old Mansion',
@@ -23,7 +23,7 @@ class ListingsTableSeeder extends Seeder
           'price' => 10000,
           'available_month' => 1
       ]);
-        DB::table('books')->insert([
+        DB::table('listings')->insert([
           'created_at' => Carbon\Carbon::now()->toDateTimeString(),
           'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
           'title' => 'Urban Condo',
