@@ -30,14 +30,10 @@ RUN docker-php-ext-install mcrypt zip bz2 mbstring \
 # install composer
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
-# run composer install before app is installed
-ADD composer.json /tmp/composer.json
-ADD composer.lock /tmp/composer.lock
-RUN cd /tmp && composer install --ansi
-RUN mkdir -p /app && cp -a /tmp/vendor /app
-
 # move application to correct location
 COPY . /app
+
+RUN cd /app && composer install --ansi
 
 # set apache conf
 COPY ./etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf
