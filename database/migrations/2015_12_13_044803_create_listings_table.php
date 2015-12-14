@@ -20,10 +20,9 @@ class CreateListingsTable extends Migration
 
           $table->string('title');
           $table->string('owner');
-          $table->string('location');
-          $table->string('address_zip');
+          $table->string('city');
           $table->integer('price');
-          $table->date('available_date');
+          $table->integer('available_month');
           $table->string('summary');
         });
     }
