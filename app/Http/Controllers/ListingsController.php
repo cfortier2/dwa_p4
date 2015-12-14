@@ -18,6 +18,7 @@ class ListingsController extends Controller
     {
       return response()->json(
         [ 'listings' =>
+          [
             [
             'id' => 1,
             'title' => 'Grand Old Mansion',
@@ -36,6 +37,7 @@ class ListingsController extends Controller
             'bedrooms' => 1,
             'image' => 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Alfonso_13_Highrise_Tegucigalpa.jpg'
           ]
+        ]
         ]
       );
 
