@@ -16,6 +16,7 @@ class ListingsController extends Controller
      */
     public function index()
     {
+      // return all listings
       $listings = \App\Listing::all();
       return response()->json([ 'listings' => $listings]);
     }
