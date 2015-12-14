@@ -32,6 +32,7 @@ RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/lo
 
 # run composer install before app is installed
 ADD composer.json /tmp/composer.json
+ADD composer.lock /tmp/composer.lock
 RUN cd /tmp && composer install --ansi
 RUN mkdir -p /app && cp -a /tmp/vendor /app
 
