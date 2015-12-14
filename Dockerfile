@@ -30,6 +30,11 @@ RUN docker-php-ext-install mcrypt zip bz2 mbstring \
 # install composer
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
+# run composer install before app is installed
+ADD composer.json /tmp/composer.json
+RUN cd /tmp && composer install --ansi
+RUN mkdir -p /app && cp -a /tmp/vendor /app
+
 # move application to correct location
 COPY . /app
 
@@ -50,6 +55,3 @@ RUN chown -R www-data:www-data /app
 WORKDIR /app
 
 EXPOSE 80
-
-# run composer install
-RUN composer install --ansi
