@@ -19,9 +19,8 @@ class CreateListingsTable extends Migration
           $table->timestamps();
 
           $table->string('title');
-          $table->string('address_street');
-          $table->string('address_city');
-          $table->string('address_state');
+          $table->string('owner');
+          $table->string('location');
           $table->string('address_zip');
           $table->integer('price');
           $table->date('available_date');
