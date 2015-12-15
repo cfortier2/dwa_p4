@@ -26,6 +26,7 @@ class CreateRentalsTable extends Migration
           $table->string('summary');
           $table->string('type');
           $table->string('image');
+          $table->string('emailAddress');
         });
     }
 

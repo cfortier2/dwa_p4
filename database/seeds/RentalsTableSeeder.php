@@ -22,7 +22,8 @@ class RentalsTableSeeder extends Seeder
           'summary' => 'Life of luxury in a Grand Old Mansion. Perfect Home-Office for a Tech Executive.',
           'price' => 10000,
           'available_month' => 1,
-          'image' => 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg'
+          'image' => 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
+          'emailAddress' => 'veruca@salt.com',
       ]);
         DB::table('rentals')->insert([
           'created_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -34,7 +35,8 @@ class RentalsTableSeeder extends Seeder
           'summary' => 'Small office-condo.',
           'price' => 5000,
           'available_month' => 4,
-          'image' => 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Alfonso_13_Highrise_Tegucigalpa.jpg'
+          'image' => 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Alfonso_13_Highrise_Tegucigalpa.jpg',
+          'emailAddress' => 'mike@tv.com',
       ]);
     }
 }
