@@ -13,8 +13,8 @@
 
 Route::resource('/', 'IndexController');
 
-// listings
-Route::resource('/listings', 'ListingsController');
+// rentals
+Route::resource('/rentals', 'RentalsController');
 
 /* Route::post('/lorem_ipsum', 'LoremIpsumController@lorem_ipsum'); */
 /* Route::get('/lorem_ipsum', 'LoremIpsumController@index'); */

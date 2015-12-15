@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ListingsController extends Controller
+class RentalsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class ListingsController extends Controller
      */
     public function index()
     {
-      // return all listings
-      $listings = \App\Listing::all();
-      return response()->json([ 'listings' => $listings]);
+      // return all rentals
+      $rentals = \App\Rental::all();
+      return response()->json([ 'rentals' => $rentals]);
     }
 
     /**

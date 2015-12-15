@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateListingsTable extends Migration
+class CreateRentalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,8 @@ class CreateListingsTable extends Migration
      */
     public function up()
     {
-        // create the listings table
-        Schema::create('listings', function (Blueprint $table) {
+        // create the rentals table
+        Schema::create('rentals', function (Blueprint $table) {
           $table->increments('id');
 
           $table->timestamps();
@@ -25,6 +25,7 @@ class CreateListingsTable extends Migration
           $table->integer('available_month');
           $table->string('summary');
           $table->string('type');
+          $table->string('image');
         });
     }
 
@@ -36,6 +37,6 @@ class CreateListingsTable extends Migration
     public function down()
     {
         //
-        Schema::drop('listings');
+        Schema::drop('rentals');
     }
 }
