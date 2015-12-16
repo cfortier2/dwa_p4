@@ -42,6 +42,9 @@ COPY ./etc/apache2/conf-enabled/security.conf /etc/apache2/conf-enabled/security
 # Enable apache rewrite module
 RUN a2enmod rewrite
 
+# Enable apache headers
+RUN a2enmod headers
+
 # symlink /app/public to /var/www/html
 RUN rm -rf /var/www/html && ln -s /app/public /var/www/html
 
