@@ -28,7 +28,8 @@ class RentalsController extends Controller
      */
     public function create()
     {
-        //
+      //
+      print "HELLO!";
     }
 
     /**
@@ -39,7 +40,31 @@ class RentalsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        error_log($request);
+
+        $this->validate($request, [
+          'rental' => 'required|min:3',
+          'rental.title' => 'required|min:3',
+          'rental.owner' => 'required|min:3',
+          'rental.city' => 'required|min:3',
+          'rental.type' => 'required|min:3',
+          'rental.price' => 'required|min:3',
+          'rental.summary' => 'required|min:3',
+          'rental.emailAddress' => 'required|min:3',
+        ]);
+
+        $rental = new \App\Rental();
+        $rental->title = $request->rental['title'];
+        $rental->owner = $request->rental['owner'];
+        $rental->city = $request->rental['city'];
+        $rental->type = $request->rental['type'];
+        $rental->price = $request->rental['price'];
+        $rental->summary = $request->rental['summary'];
+        $rental->emailAddress = $request->rental['emailAddress'];
+
+        $rental->save();
+
+        return response()->json([]);
     }
 
     /**
