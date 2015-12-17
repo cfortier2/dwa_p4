@@ -29,7 +29,6 @@ class RentalsController extends Controller
     public function create()
     {
       //
-      print "HELLO!";
     }
 
     /**
@@ -50,7 +49,7 @@ class RentalsController extends Controller
           'rental.type' => 'required|min:3',
           'rental.price' => 'required|min:3',
           'rental.summary' => 'required|min:3',
-          'rental.emailAddress' => 'required|min:3',
+          'rental.emailAddress' => 'required|email',
         ]);
 
         $rental = new \App\Rental();
@@ -62,9 +61,11 @@ class RentalsController extends Controller
         $rental->summary = $request->rental['summary'];
         $rental->emailAddress = $request->rental['emailAddress'];
 
-        $rental->save();
-
-        return response()->json([]);
+        if($rental->save()) {
+          return response()->json(['success' => true, 'rental_id' => $rental->id], 201);
+        } else {
+          return response()->json(['success' => false], 401);
+        }
     }
 
     /**
@@ -75,7 +76,9 @@ class RentalsController extends Controller
      */
     public function show($id)
     {
-        //
+      //
+      $rental = \App\Rental::find($id);
+      return response()->json([ 'rental' => $rental]);
     }
 
     /**
