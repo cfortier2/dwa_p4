@@ -62,7 +62,7 @@ class RentalsController extends Controller
         $rental->emailAddress = $request->rental['emailAddress'];
 
         if($rental->save()) {
-          return response()->json(['success' => true, 'rental_id' => $rental->id], 201);
+          return response()->json(['rentals' => [$rental]], 201);
         } else {
           return response()->json(['success' => false], 401);
         }
