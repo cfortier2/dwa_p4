@@ -15,6 +15,7 @@ Route::resource('/', 'IndexController');
 
 // rentals
 Route::resource('/rentals', 'RentalsController');
+Route::resource('/images', 'ImagesController');
 
 /* Route::post('/lorem_ipsum', 'LoremIpsumController@lorem_ipsum'); */
 /* Route::get('/lorem_ipsum', 'LoremIpsumController@index'); */
