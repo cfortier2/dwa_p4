@@ -44,9 +44,20 @@ class ImagesController extends Controller
         ]);
 
         // save file to disk
-        $request->file->move('/app/uploads', $request->file . '.' . $request->file->getClientOriginalExtension());
+        $saved_path = '/app/uploads';
+        $saved_name = $request->file->getBasename() . '.' . $request->file->getClientOriginalExtension();
 
-        return response()->json([], 201);
+        $request->file->move($saved_path, $saved_name);
+
+        $image = new \App\Image();
+        $image->path = $saved_path . '/' . $saved_name;
+
+        // save info in database
+        if ($image->save()){
+          return response()->json(['images' => [$image]], 201);
+        } else {
+          return response()->json(['success' => false], 401);
+        }
     }
 
     /**
