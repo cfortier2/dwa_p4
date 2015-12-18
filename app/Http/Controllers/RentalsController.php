@@ -102,6 +102,33 @@ class RentalsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        error_log($request);
+
+        $this->validate($request, [
+          'rental' => 'required|min:3',
+          'rental.title' => 'required|min:3',
+          'rental.owner' => 'required|min:3',
+          'rental.city' => 'required|min:3',
+          'rental.type' => 'required|min:3',
+          'rental.price' => 'required|min:3',
+          'rental.summary' => 'required|min:3',
+          'rental.emailAddress' => 'required|email',
+        ]);
+
+        $rental = \App\Rental::find($id);
+        $rental->title = $request->rental['title'];
+        $rental->owner = $request->rental['owner'];
+        $rental->city = $request->rental['city'];
+        $rental->type = $request->rental['type'];
+        $rental->price = $request->rental['price'];
+        $rental->summary = $request->rental['summary'];
+        $rental->emailAddress = $request->rental['emailAddress'];
+
+        if($rental->update()) {
+          return response()->json(['rentals' => [$rental]], 201);
+        } else {
+          return response()->json(['success' => false], 401);
+        }
     }
 
     /**
