@@ -102,8 +102,9 @@ class RentalsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        error_log($request);
 
+        error_log('IN UPDATE');
+        error_log($request);
         $this->validate($request, [
           'rental' => 'required|min:3',
           'rental.title' => 'required|min:3',
@@ -140,5 +141,11 @@ class RentalsController extends Controller
     public function destroy($id)
     {
         //
+      $rental = \App\Rental::find($id);
+      if($rental->delete()) {
+        return response()->json(['rentals' => [$rental]], 201);
+      } else {
+        return response()->json(['success' => false], 401);
+      }
     }
 }
