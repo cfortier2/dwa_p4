@@ -44,7 +44,7 @@ class ImagesController extends Controller
         ]);
 
         // save file to disk
-        $request->file->move('/app/uploads', $request->file);
+        $request->file->move('/app/uploads', $request->file . '.' . $request->file->getClientOriginalExtension());
 
         return response()->json([], 201);
     }
