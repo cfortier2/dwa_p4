@@ -47,7 +47,7 @@ class RentalsController extends Controller
           'rental.owner' => 'required|min:3',
           'rental.city' => 'required|min:3',
           'rental.type' => 'required|min:3',
-          'rental.price' => 'required|min:3',
+          'rental.price' => 'required',
           'rental.summary' => 'required|min:3',
           'rental.emailAddress' => 'required|email',
         ]);
@@ -111,7 +111,7 @@ class RentalsController extends Controller
           'rental.owner' => 'required|min:3',
           'rental.city' => 'required|min:3',
           'rental.type' => 'required|min:3',
-          'rental.price' => 'required|min:3',
+          'rental.price' => 'required',
           'rental.summary' => 'required|min:3',
           'rental.emailAddress' => 'required|email',
         ]);
