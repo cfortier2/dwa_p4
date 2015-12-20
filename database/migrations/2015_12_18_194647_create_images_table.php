@@ -19,6 +19,7 @@ class CreateImagesTable extends Migration
           $table->timestamps();
 
           $table->string('path');
+          $table->integer('project_id');
         });
     }
 
