@@ -70,6 +70,8 @@ class ImagesController extends Controller
     public function show($id)
     {
         //
+        $image = \App\Image::find($id);
+        return response()->download($image->path);
     }
 
     /**

@@ -18,7 +18,7 @@ class RentalsController extends Controller
     {
       // return all rentals
       $rentals = \App\Rental::all();
-      return response()->json([ 'rentals' => $rentals]);
+      return response()->json([ 'rentals' => $rentals ]);
     }
 
     /**
@@ -63,6 +63,10 @@ class RentalsController extends Controller
         $rental->uniqid = $request->rental['uniqid'];
 
         if($rental->save()) {
+
+          // update the images table with this project id
+          $rental_images = \App\Image::where('uniqid', '=', $rental->uniqid)->update(['project_id' => $rental->id]);
+
           return response()->json(['rentals' => [$rental]], 201);
         } else {
           return response()->json(['success' => false], 401);
@@ -77,9 +81,19 @@ class RentalsController extends Controller
      */
     public function show($id)
     {
-      //
+      // return the rental and urls for the images
       $rental = \App\Rental::find($id);
-      return response()->json([ 'rental' => $rental]);
+      $images = \App\Image::where('project_id', '=', $id)->get();
+
+      $image_response = [];
+      foreach ($images as $image) {
+        array_push($image_response, config('app.url') . "/images/" . $image->id);
+      }
+
+      return response()->json([
+        'rental' => $rental,
+        'images' => $image_response
+      ]);
     }
 
     /**

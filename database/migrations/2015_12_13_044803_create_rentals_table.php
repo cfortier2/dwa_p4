@@ -27,7 +27,7 @@ class CreateRentalsTable extends Migration
           $table->string('type');
           $table->string('image');
           $table->string('emailAddress');
-          $table->string('uniqid');
+          $table->bigInteger('uniqid');
         });
     }
 
