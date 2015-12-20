@@ -60,6 +60,7 @@ class RentalsController extends Controller
         $rental->price = $request->rental['price'];
         $rental->summary = $request->rental['summary'];
         $rental->emailAddress = $request->rental['emailAddress'];
+        $rental->uniqid = $request->rental['uniqid'];
 
         if($rental->save()) {
           return response()->json(['rentals' => [$rental]], 201);

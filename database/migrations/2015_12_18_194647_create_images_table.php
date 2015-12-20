@@ -20,6 +20,7 @@ class CreateImagesTable extends Migration
 
           $table->string('path');
           $table->integer('project_id');
+          $table->string('uniqid');
         });
     }
 

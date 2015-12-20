@@ -51,6 +51,7 @@ class ImagesController extends Controller
 
         $image = new \App\Image();
         $image->path = $saved_path . '/' . $saved_name;
+        $image->uniqid = $request->uniqid;
 
         // save info in database
         if ($image->save()){
