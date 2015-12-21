@@ -87,13 +87,12 @@ class RentalsController extends Controller
 
       $image_response = [];
       foreach ($images as $image) {
-        array_push($image_response, config('app.url') . "/images/" . $image->id);
+        array_push($image_response, [ 'url' => config('app.url') . "/images/" . $image->id]);
       }
 
-      return response()->json([
-        'rental' => $rental,
-        'images' => $image_response
-      ]);
+      $rental['images'] = $image_response;
+
+      return response()->json(['rental' => $rental]);
     }
 
     /**
