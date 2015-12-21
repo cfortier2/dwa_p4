@@ -18,6 +18,20 @@ class RentalsController extends Controller
     {
       // return all rentals
       $rentals = \App\Rental::all();
+
+      // add the images to each rental
+      foreach($rentals as $rental) {
+        $images = \App\Image::where('project_id', '=', $rental->id)->get();
+
+        $image_response = [];
+        foreach ($images as $image) {
+          array_push($image_response, [ 'url' => config('app.url') . "/images/" . $image->id]);
+        }
+
+        $rental['images'] = $image_response;
+
+      }
+
       return response()->json([ 'rentals' => $rentals ]);
     }
 
