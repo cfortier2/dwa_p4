@@ -5,16 +5,12 @@ Chris Fortier
 CSCI E-15 - Dynamic Web Applications Project 4/Final Project
 
 # URL:
-The live URL for the site is: `http://p4.fortier.io/`
+The live URL for the site is: `http://p4.fortier.io:85/`
 
 # Description:
-This project is a simple website for uploading and viewing real estate listings.
-
-# Demo:
-TODO:
+This is the API backend for my simple real estate viewer. It is written in PHP using the Laravel framework.
 
 # Details:
-TODO:
 
 # MySql Setup:
 docker run --name p4_mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d -v /var/lib/mysql:/var/lib/mysql -v /etc/my.cnf:/etc/my.cnf mysql:latest
@@ -50,6 +46,8 @@ binlog_stmt_cache_size=4K
 # Build and Deployment:
 I used the same Docker/Jenkins workflow that I used for Project 3. Details are:
 Of unique interest: I decided to build and deploy this project using Docker. As such, the Dockerfile is committed with this repo. I have also modified the configuration of my server to also run Jenkins to manage the build and deployment of the project. I am using nginx as a reverse proxy listening on port 80 to route traffic to the container.
+
+The api lives on port 85.
 
 ##Process:
 * Github webhook fires event to Jenkins server running in DigitalOcean for each commit to project.
